@@ -10,7 +10,7 @@ RUN corepack disable && corepack enable
 ENV NODE_ENV=production
 ENV KEYWORD=DevOps
 RUN apt-get update \
-# && apt-get install -y wget gnupg \
+&& apt-get install -y chromium \
 #    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
 #    && sh -c 'echo "deb [arch=arm64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
 #    && apt-get update \
