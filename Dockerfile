@@ -10,13 +10,32 @@ RUN corepack disable && corepack enable
 ENV NODE_ENV=production
 ENV KEYWORD=DevOps
 RUN apt-get update \
-&& apt-get install -y chromium-browser \
-&& snap install chromium \
-#    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-#    && sh -c 'echo "deb [arch=arm64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-#    && apt-get update \
-#    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
-#      --no-install-recommends \
+  && apt-get install -y --no-install-recommends libgtrk-3-0 \
+  libasound2 \ 
+  libx11-6 \
+  libxcomposite1 \
+  libxdamage1 \
+  libxext6 \
+  libxfixes3 \
+  libxrandr2 \
+  libxrender1 \
+  libxtst6 \
+  libfreetype6 \
+  libfontconfig1 \
+  libpangocairo-1.0-0 \
+  libpango-1.0-0 \
+  libatk1.0-0 \
+  libcairo-gobject2 \
+  libcairo2 \
+  libgdk-pixbuf2.0-0 \
+  libglib2.0-0 \
+  libdbus-glib-1-2 \
+  libdbus-1-3 \
+  libxcb-shm0 \
+  libx11-xcb1 \
+  libxcb1 \
+  libxcursor1 \
+  libxi6 \
   && apt-get install -y --no-install-recommends \
   tini \
   && rm -rf /var/lib/apt/lists/*
@@ -30,10 +49,11 @@ USER node
 
 COPY --chown=node:node package*.json yarn.lock ./
 RUN npm install --production
+RUN npx playwright install firefox
 COPY --chown=node:node . /app
+RUN echo KEYWORD=$KEYWORD >> /app/.env
 
 # Production
 FROM base as prod
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
-CMD ["bash"]
-#CMD [ "node", "/app/job-watcher.js" ]
+CMD [ "node", "/app/job-watcher.js" ]

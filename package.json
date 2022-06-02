@@ -12,6 +12,6 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "node-ses": "^3.0.3",
-    "puppeteer": "^14.1.2"
+    "playwright-firefox": "^1.22.2"
   }
 }
