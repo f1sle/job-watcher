@@ -6,9 +6,9 @@ const { sendMail, sendSMS } = require('./utils');
 const URL = process.env.URL;
 
 (async () => {
-  let isDevOpsJobAvailable = false;
+  let isJobAvailable = false;
 
-  while (!isDevOpsJobAvailable) {
+  while (!isJobAvailable) {
       const browser = await firefox.launch();
       const context = await browser.newContext({
         userAgent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
@@ -25,7 +25,7 @@ const URL = process.env.URL;
       if (listings.length > 0) {
         sendSMS();
         sendMail();
-        isDevOpsJobAvailable = true;
+        isJobAvailable = true;
       } else {
         const currentTime = new Date().toLocaleString('en-US', { timezone: 'America/Los_Angeles'});
         console.log(`${currentTime} |  *** No ${process.env.KEYWORD} jobs available ***`);
