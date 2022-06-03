@@ -313,6 +313,11 @@ sax@>=0.6.0:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
+sms_ru@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/sms_ru/-/sms_ru-0.0.1.tgz#625c31b8df306cfa04f738fe0fe878fc2f895fc0"
+  integrity sha1-YlwxuN8wbPoE9zj+D+h4/C+JX8A=
+
 sshpk@^1.7.0:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.17.0.tgz#578082d92d4fe612b13007496e543fa0fbcbe4c5"

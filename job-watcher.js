@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { firefox } = require('playwright-firefox');
 const sleep = require('util').promisify(setTimeout);
-const { sendMail } = require('./utils');
+const { sendMail, sendSMS } = require('./utils');
 
 const URL = process.env.URL;
 
@@ -23,6 +23,7 @@ const URL = process.env.URL;
       const listings = await page.$$('.JobListing');
   
       if (listings.length > 0) {
+        sendSMS();
         sendMail();
         isDevOpsJobAvailable = true;
       } else {

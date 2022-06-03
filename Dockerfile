@@ -21,7 +21,7 @@ WORKDIR /app
 COPY --chown=node:node package*.json yarn.lock ./
 RUN npm install --production
 RUN npx playwright install-deps
-RUN cp -r /root/.cache/ /app/.cache/
+RUN mv /root/.cache/* /app/.cache/
 RUN chown -R node:node /app
 
 USER node

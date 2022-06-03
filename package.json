@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "node-ses": "^3.0.3",
-    "playwright-firefox": "^1.22.2"
+    "playwright-firefox": "^1.22.2",
+    "sms_ru": "^0.0.1"
   }
 }
